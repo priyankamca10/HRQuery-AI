@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Employee SQL Query Generator</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header -->
+        <header>
+            <div class="icon">🤖</div>
+
+            <div>
+                <h1>HRQuery AI</h1>
+
+                <p>
+                    Ask questions about your employee database
+                    using natural language
+                </p>
+            </div>
+        </header>
+
+
+        <!-- Question Section -->
+        <section class="card">
+
+            <h2>Ask Your Question</h2>
+
+            <textarea
+                id="question"
+                placeholder="Example: Show employees from IT earning more than 60000"
+            ></textarea>
+
+            <div class="examples">
+
+                <span>Try:</span>
+
+                <button onclick="setQuestion('Show all employees')">
+                    All Employees
+                </button>
+
+                <button onclick="setQuestion('Show employees from IT department')">
+                    IT Employees
+                </button>
+
+                <button onclick="setQuestion('Show employees earning more than 60000')">
+                    Salary &gt; 60000
+                </button>
+
+                <button onclick="setQuestion('Who has the highest salary?')">
+                    Highest Salary
+                </button>
+
+            </div>
+
+            <button
+                id="generateBtn"
+                class="generate-btn"
+                onclick="generateQuery()"
+            >
+                Generate SQL
+            </button>
+
+        </section>
+
+
+        <!-- Loading -->
+        <div id="loading" class="loading hidden">
+
+            <div class="spinner"></div>
+
+            <p>
+                Llama 3.2 is generating your SQL query...
+            </p>
+
+        </div>
+
+
+        <!-- Error -->
+        <div id="errorBox" class="error hidden"></div>
+
+
+        <!-- SQL Section -->
+        <section id="sqlSection" class="card hidden">
+
+            <div class="section-title">
+
+                <h2>Generated SQL</h2>
+
+                <button onclick="copySQL()" class="copy-btn">
+                    Copy SQL
+                </button>
+
+            </div>
+
+            <pre id="sql"></pre>
+
+        </section>
+
+
+        <!-- Explanation -->
+        <section id="explanationSection" class="card hidden">
+
+            <h2>Query Explanation</h2>
+
+            <p id="explanation"></p>
+
+        </section>
+
+
+        <!-- Results -->
+        <section id="resultSection" class="card hidden">
+
+            <h2>Query Results</h2>
+
+            <div id="resultContainer"></div>
+
+        </section>
+
+
+    </div>
+
+
+    <script src="/static/script.js"></script>
+
+</body>
+
+</html>
