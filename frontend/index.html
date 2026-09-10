@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Employee SQL Query Generator</title>
+    <title>HRQuery AI</title>
 
     <link rel="stylesheet" href="/static/style.css">
 </head>
@@ -16,7 +16,10 @@
 
         <!-- Header -->
         <header>
-            <div class="icon">🤖</div>
+
+            <div class="icon">
+                🤖
+            </div>
 
             <div>
                 <h1>HRQuery AI</h1>
@@ -26,7 +29,40 @@
                     using natural language
                 </p>
             </div>
+
         </header>
+
+
+        <!-- HR Dashboard
+        <section class="dashboard">
+
+            <h2>HR Dashboard</h2>
+
+            <div class="dashboard-cards">
+
+                <div class="dashboard-card">
+                    <h3>Total Employees</h3>
+                    <p id="totalEmployees">0</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Departments</h3>
+                    <p id="totalDepartments">0</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Average Salary</h3>
+                    <p id="averageSalary">₹0</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Highest Salary</h3>
+                    <p id="highestSalary">₹0</p>
+                </div>
+
+            </div>
+
+        </section> -->
 
 
         <!-- Question Section -->
@@ -36,8 +72,9 @@
 
             <textarea
                 id="question"
-                placeholder="Example: Show employees from IT earning more than 60000"
-            ></textarea>
+                placeholder="Example: Show employees from IT earning more than 60000">
+            </textarea>
+
 
             <div class="examples">
 
@@ -59,14 +96,20 @@
                     Highest Salary
                 </button>
 
+                <button onclick="setQuestion('How many employees are there in each department?')">
+                    Group By Department
+                </button>
+
             </div>
+
 
             <button
                 id="generateBtn"
                 class="generate-btn"
-                onclick="generateQuery()"
-            >
+                onclick="generateQuery()">
+
                 Generate SQL
+
             </button>
 
         </section>
@@ -95,8 +138,12 @@
 
                 <h2>Generated SQL</h2>
 
-                <button onclick="copySQL()" class="copy-btn">
+                <button
+                    onclick="copySQL()"
+                    class="copy-btn">
+
                     Copy SQL
+
                 </button>
 
             </div>
@@ -107,7 +154,9 @@
 
 
         <!-- Explanation -->
-        <section id="explanationSection" class="card hidden">
+        <section
+            id="explanationSection"
+            class="card hidden">
 
             <h2>Query Explanation</h2>
 
@@ -117,7 +166,9 @@
 
 
         <!-- Results -->
-        <section id="resultSection" class="card hidden">
+        <section
+            id="resultSection"
+            class="card hidden">
 
             <h2>Query Results</h2>
 
@@ -125,11 +176,23 @@
 
         </section>
 
+    </div>
+    <!-- GRAPH - LAST -->
+<section class="chart-section">
 
+    <h2>Employees by Department</h2>
+
+    <div class="chart-container">
+        <canvas id="departmentChart"></canvas>
     </div>
 
+</section>
 
-    <script src="/static/script.js"></script>
+
+<!-- JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="/static/script.js"></script>
 
 </body>
 

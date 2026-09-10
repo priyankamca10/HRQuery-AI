@@ -35,7 +35,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="E:\employee-sql-generator\.venv"
+VIRTUAL_ENV="E:\Priyanka10_AI\employee-sql-generator\.venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

@@ -1,6 +1,5 @@
 import ollama
 
-
 SCHEMA = """
 Database: employees.db
 
@@ -16,9 +15,11 @@ city TEXT
 experience INTEGER
 """
 
+# Connect to Ollama running in Docker
+client = ollama.Client(host="http://localhost:11434")
+
 
 def generate_sql(question):
-
     prompt = f"""
 You are an expert SQL query generator.
 
@@ -38,10 +39,11 @@ Rules:
 9. Do not include explanations.
 
 User question:
+
 {question}
 """
 
-    response = ollama.chat(
+    response = client.chat(
         model="llama3.2:latest",
         messages=[
             {
